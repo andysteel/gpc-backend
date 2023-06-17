@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.gmail.andersoninfonet</groupId>
 	<artifactId>gpc</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>Gestao de pessoas e contatos.</name>
 	<description>Projeto de gerenciamento de teste técnico</description>
 	<properties>
