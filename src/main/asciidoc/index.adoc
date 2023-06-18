@@ -1,0 +1,16 @@
+= Este é um exemplo do serviço GPC
+
+[[example_curl_request]]
+== POST Curl request
+
+include::{snippets}/deveSalvarUmaPessoa/curl-request.adoc[]
+
+[[example_http_request]]
+== POST HTTP request
+
+include::{snippets}/deveSalvarUmaPessoa/http-request.adoc[]
+
+[[example_http_response]]
+== POST HTTP response
+
+include::{snippets}/deveSalvarUmaPessoa/http-response.adoc[]
