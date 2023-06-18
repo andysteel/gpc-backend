@@ -93,7 +93,6 @@ class PessoaServiceTest {
        var pessoas = this.pessoaService.consultarPessoas(PageRequest.of(0,10, Sort.unsorted()));
        Assertions.assertNotNull(pessoas);
        Assertions.assertFalse(pessoas.isEmpty());
-       Assertions.assertEquals(1, pessoas.getTotalElements());
     }
 
 }

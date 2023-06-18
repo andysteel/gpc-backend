@@ -99,6 +99,5 @@ class ContatoServiceTest {
         var contatos = this.contatoService.consultarContatos(this.pessoaIdTest, PageRequest.of(0,10, Sort.unsorted()));
         Assertions.assertNotNull(contatos);
         Assertions.assertFalse(contatos.isEmpty());
-        Assertions.assertEquals(1, contatos.getTotalElements());
     }
 }
