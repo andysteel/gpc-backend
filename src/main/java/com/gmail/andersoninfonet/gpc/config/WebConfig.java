@@ -49,13 +49,13 @@ public class WebConfig {
         server.description("Url do servidor");
 
         Contact contact = new Contact();
-        contact.setEmail("bezkoder@gmail.com");
-        contact.setName("BezKoder");
-        contact.setUrl("https://www.bezkoder.com");
+        contact.setEmail("andersoninfonet@gmail.com");
+        contact.setName("Anderson Dias");
+        contact.setUrl("https://www.linkedin.com/in/anderson-dias-8124a668/");
 
         Info info = new Info()
                 .title("Gestão de pessoas e contatos")
-                .version("0.o.2")
+                .version("0.0.2")
                 .contact(contact);
 
         return new OpenAPI().info(info).servers(List.of(server));
