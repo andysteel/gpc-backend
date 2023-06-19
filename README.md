@@ -27,7 +27,7 @@ O deploy e esteira esta sendo feito pela ferramenta Caprover que tenho hospedado
 
 ## Documentação
 
-A documentação da Api se encontra disponível no link aseguir:
+A documentação da Api se encontra disponível no link aseguir:<br>
 https://gpc-app.andersondias.net.br/api/swagger-ui/index.html
 ## License
 
