@@ -19,7 +19,7 @@ public record SalvarPessoaRequest(
         @NotBlank(message = "O CPF da pessoa precisa ser informado")
         String cpf,
 
-        @Past(message = "A data de nascimento tem que ser menor que o dia de hoje")
+        @PastOrPresent(message = "A data de nascimento tem que ser menor ou igual ao dia de hoje")
         @NotNull(message = "A data de nascimento precisa ser informada")
         LocalDate dataNascimento,
 
