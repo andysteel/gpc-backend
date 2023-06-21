@@ -27,7 +27,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
             final JDBCException ex) {
         String message = null;
         if(ex instanceof ConstraintViolationException constraintViolationException) {
-            if(constraintViolationException.getConstraintName().contains("UNIQUE_CPF")) {
+            if(constraintViolationException.getConstraintName().toLowerCase().contains("unique_cpf")) {
                 message = "O CPF informado já existe cadastrado no banco de dados.";
             }
         } else {
