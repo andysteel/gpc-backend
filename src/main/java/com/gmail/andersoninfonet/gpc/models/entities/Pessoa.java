@@ -8,7 +8,8 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "pessoa", schema = "gpc")
+@Table(name = "pessoa", schema = "gpc",
+        indexes = {@Index(name = "unique_cpf_idx", unique = true, columnList = "cpf")})
 public class Pessoa implements Serializable {
     @Id
     @SequenceGenerator(name = "seq_pessoa", sequenceName = "seq_pessoa", schema = "gpc", allocationSize = 1)
@@ -19,7 +20,7 @@ public class Pessoa implements Serializable {
     @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "cpf", nullable = false, unique = true, length = 11)
+    @Column(name = "cpf", nullable = false, length = 11)
     private String cpf;
 
     @Column(name = "data_nascimento", nullable = false)
