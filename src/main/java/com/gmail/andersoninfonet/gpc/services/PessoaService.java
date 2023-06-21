@@ -34,13 +34,15 @@ public class PessoaService {
 
     @Transactional
     public SalvarPessoaResponse salvarPessoa(SalvarPessoaRequest pessoaRequest) {
-        var pessoa = this.repository.save(pessoaRequest.toNewEntity());
+        var pessoa = pessoaRequest.toNewEntity();
+        pessoa.setCpf(pessoa.getCpf().replaceAll("\\D", ""));
+        var pessoaSalva = this.repository.save(pessoa);
         pessoaRequest.contatos().forEach(contatoRequest -> {
             var contato = contatoRequest.toNewEntity();
-            contato.setPessoaId(pessoa.getId());
+            contato.setPessoaId(pessoaSalva.getId());
             this.contatoService.salvarContato(contato);
         });
-        return new SalvarPessoaResponse(pessoa);
+        return new SalvarPessoaResponse(pessoaSalva);
     }
 
     public Pessoa buscarPessoaPorId(Long id) {

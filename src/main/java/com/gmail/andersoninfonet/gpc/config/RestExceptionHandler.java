@@ -3,6 +3,7 @@ package com.gmail.andersoninfonet.gpc.config;
 import com.gmail.andersoninfonet.gpc.models.exceptions.ExceptionDetails;
 import com.gmail.andersoninfonet.gpc.models.exceptions.GpcValidationExceptionDetails;
 import org.hibernate.JDBCException;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -24,10 +25,18 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(JDBCException.class)
     public ResponseEntity<ExceptionDetails> handlerGpcNotFoundException(
             final JDBCException ex) {
+        String message = null;
+        if(ex instanceof ConstraintViolationException constraintViolationException) {
+            if(constraintViolationException.getConstraintName().contains("UNIQUE_CPF")) {
+                message = "O CPF informado já existe cadastrado no banco de dados.";
+            }
+        } else {
+           message = "Erro ao tentar realizar operação no banco de dados";
+        }
         return new ResponseEntity<>(
                 new ExceptionDetails("Gpc Constraint Violation exception.",
                         HttpStatus.BAD_REQUEST.value(),
-                        "Erro ao tentar realizar operação no banco de dados",
+                        message,
                         ex.getClass().getName(),
                         Instant.now(), null),
                 HttpStatus.BAD_REQUEST);
